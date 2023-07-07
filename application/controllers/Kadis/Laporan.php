@@ -49,10 +49,11 @@ class Laporan extends CI_Controller {
     {
         $conf['title'] = 'Laporan Barang Masuk';
 
+        $id_supplier = $this->input->post('id_supplier');
         $start = $this->input->post('start_date');
         $end = $this->input->post('end_date');
         $data['js'] = 'laporan_barang_masuk';
-        $data['laporan'] = $this->LaporanModel->laporan_barang_masuk($start, $end)->result();
+        $data['laporan'] = $this->LaporanModel->laporan_barang_masuk($id_supplier, $start, $end)->result();
 
         // echo $this->db->last_query($data['laporan']);
         // var_dump($data['laporan']);
@@ -68,10 +69,11 @@ class Laporan extends CI_Controller {
     {
         $conf['title'] = 'Laporan Barang Keluar';
 
+        $id_bidang = $this->input->post('id_bidang');
         $start = $this->input->post('start_date');
         $end = $this->input->post('end_date');
         $data['js'] = 'laporan_barang_keluar';
-        $data['laporan'] = $this->LaporanModel->laporan_barang_keluar($start, $end)->result();
+        $data['laporan'] = $this->LaporanModel->laporan_barang_keluar($id_bidang, $start, $end)->result();
 
         // echo $this->db->last_query($data['laporan']);
         // var_dump($data['laporan']);
@@ -87,10 +89,11 @@ class Laporan extends CI_Controller {
     {
         $conf['title'] = 'Laporan Barang Pending';
 
+        $id_supplier = $this->input->post('id_supplier');
         $start = $this->input->post('start_date');
         $end = $this->input->post('end_date');
         $data['js'] = 'laporan_barang_pending';
-        $data['laporan'] = $this->LaporanModel->laporan_barang_pending($start, $end)->result();
+        $data['laporan'] = $this->LaporanModel->laporan_barang_pending($id_supplier, $start, $end)->result();
 
         // echo $this->db->last_query($data['laporan']);
         // var_dump($data['laporan']);
@@ -166,17 +169,47 @@ class Laporan extends CI_Controller {
 
 	public function exportBarangmasuk()
 	{
+		$id_supplier = $this->input->get('id_supplier');
 		$start = $this->input->get('dari');
         $end = $this->input->get('sampai');
-		$data['barang_masuk'] = $this->LaporanModel->laporan_barang_masuk($start, $end)->result_array();
+		$data['barang_masuk'] = $this->LaporanModel->laporan_barang_masuk($id_supplier, $start, $end)->result_array();
+		// echo $this->db->last_query($data['barang_masuk']);
+		// die;
+				// $this->load->view('export/pdf-user', $data);
+
+		$this->load->library('pdf');
+
+		$this->pdf->setPaper('A4', 'landscape');
+		$this->pdf->filename = "Laporan Barang.pdf";
+		$this->pdf->load_view('admin/export/pdf-barang-masuk', $data);
+
+		// // konfigurasi dompdf
+		// $paper_size = 'A4';
+		// $orientation = 'landscape';
+		// $html = $this->output->get_output();
+		// $this->dompdf->set_paper($paper_size, $orientation);
+
+		// $this->dompdf->load_html($html);
+		// $this->dompdf->render();
+		// $this->dompdf->stream('Laporan Surat Keluar.pdf', ['Attachment' => true]);
+
+		exit;
+	}
+
+	public function exportBarangkeluar()
+	{
+		$id_bidang = $this->input->get('id_bidang');
+		$start = $this->input->get('dari');
+        $end = $this->input->get('sampai');
+		$data['barang_keluar'] = $this->LaporanModel->laporan_barang_keluar($id_bidang, $start, $end)->result_array();
 
 		// $this->load->view('export/pdf-user', $data);
 
 		$this->load->library('pdf');
 
 		$this->pdf->setPaper('A4', 'landscape');
-		$this->pdf->filename = "Daftar Barang.pdf";
-		$this->pdf->load_view('admin/export/pdf-barang-masuk', $data);
+		$this->pdf->filename = "Laporan Barang Keluar.pdf";
+		$this->pdf->load_view('admin/export/pdf-barang-keluar', $data);
 
 		// // konfigurasi dompdf
 		// $paper_size = 'A4';
@@ -218,32 +251,6 @@ class Laporan extends CI_Controller {
 		exit;
 	}
 
-	public function exportBarangkeluar()
-	{
-		$start = $this->input->get('dari');
-        $end = $this->input->get('sampai');
-		$data['barang_keluar'] = $this->LaporanModel->laporan_barang_keluar($start, $end)->result_array();
-
-		// $this->load->view('export/pdf-user', $data);
-
-		$this->load->library('pdf');
-
-		$this->pdf->setPaper('A4', 'landscape');
-		$this->pdf->filename = "Daftar Barang.pdf";
-		$this->pdf->load_view('admin/export/pdf-barang-keluar', $data);
-
-		// // konfigurasi dompdf
-		// $paper_size = 'A4';
-		// $orientation = 'landscape';
-		// $html = $this->output->get_output();
-		// $this->dompdf->set_paper($paper_size, $orientation);
-
-		// $this->dompdf->load_html($html);
-		// $this->dompdf->render();
-		// $this->dompdf->stream('Laporan Surat Keluar.pdf', ['Attachment' => true]);
-
-		exit;
-	}
 
 	public function exportDataBarang()
 	{

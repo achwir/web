@@ -8,6 +8,7 @@ class DataBarangModel extends CI_Model {
     {
         $this->db->select('db.*');
         $this->db->from('data_barang as db');
+        $this->db->order_by('created_at', 'DESC');
         // $this->db->join('barang_masuk as bm', 'db.id = bm.id_barang', 'LEFT');
         // $this->db->join('barang_keluar as bk', 'db.id = bk.id_barang', 'LEFT');
         // $this->db->group_by('db.id');

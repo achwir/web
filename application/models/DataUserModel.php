@@ -31,5 +31,10 @@ class DataUserModel extends CI_Model {
     {
         return $this->db->delete('users', array('id' => $id));
     }
+
+    function hitung_total()
+    {
+        return $this->db->get('users')->num_rows();
+    }
 }
 ?>

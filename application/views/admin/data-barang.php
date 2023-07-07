@@ -33,11 +33,12 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
+                                                <th>Barcode Barang</th>
                                                 <th>Kode Barang</th>
                                                 <th>Nama Barang</th>
-                                                <th>Nama Supplier</th>
                                                 <th>Stok</th>
                                                 <th>Harga</th>
+                                                <th>Jenis Barang</th>
                                                 <th>Created At</th>
                                                 <th>Action</th>
                                             </tr>
@@ -60,19 +61,20 @@
                                                     
                                                     echo '<tr>
                                                             <td>'.$no++.'</td>
+                                                            <td><img src="'.base_url('assets/barcode/'.$db->kode_barang).'.png" class="img-fluid"></td>    
                                                             <td>'.$db->kode_barang.'</td>    
                                                             <td>'.$db->nama_barang.'</td>  
-                                                            <td>'.$db->nama_supplier.'</td>  
                                                             <td>'.$stok.'</td>  
-                                                            <td>'.number_format($db->harga_barang).'</td>    
+                                                            <td>'.number_format($db->harga_barang).'</td>  
+                                                            <td>'.$db->jenis_barang.'</td>  
                                                             <td>'.date('d-m-Y', strtotime($db->created_at)).'</td>
                                                             <td>
                                                                 <button class="btn btn-warning btn-sm btn-update" 
                                                                     data-id="'.$db->id.'"  
                                                                     data-nama="'.$db->nama_barang.'"
-                                                                    data-supplier="'.$db->nama_supplier.'"
                                                                     data-kode="'.$db->kode_barang.'"
                                                                     data-harga="'.$db->harga_barang.'"
+                                                                    data-jenis="'.$db->jenis_barang.'"
                                                                 ><i class="fas fa-edit"></i></button>
                                                                 <a class="btn btn-danger btn-sm" href="'.base_url('data-barang/delete/'.$db->id).'"><i class="fas fa-trash"></i></a>
                                                             </td>
@@ -89,7 +91,7 @@
             </div>
             <div id="modal-tambah" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title" id="myModalLabel">Tambah Data Barang</h4>
@@ -107,13 +109,16 @@
                                     <input type="text" class="form-control" name="nama_barang" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Nama Supplier</label>
-                                    <input type="text" class="form-control" name="nama_supplier" required>
-                                </div>
-                                <div class="form-group">
                                     <label for="">harga Barang</label>
                                     <input type="number" class="form-control" name="harga_barang" required>
                                 </div>
+                                <div class="form-group">
+                                    <label for="">Jenis</label>
+                                    <select class="form-control mr-sm-2 select2" id="inlineFormCustomSelect" name="jenis_barang" required>
+                                                <option value="Tidak Habis">Tidak Habis</option>
+                                                <option value="Habis Pakai">Habis Pakai</option>
+                                    </select>
+                                </div>    
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -145,13 +150,16 @@
                                     <input type="text" class="form-control" name="nama_barang_update" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Nama Supplier</label>
-                                    <input type="text" class="form-control" name="nama_supplier_update" required>
-                                </div>
-                                <div class="form-group">
                                     <label for="">harga Barang</label>
                                     <input type="number" class="form-control" name="harga_barang_update" required>
                                 </div>
+                                <div class="form-group">
+                                    <label for="">Jenis</label>
+                                    <select class="form-control mr-sm-2 select2" id="inlineFormCustomSelect" name="jenis_barang_update" required>
+                                                <option value="Tidak Habis">Tidak Habis</option>
+                                                <option value="Habis Pakai">Habis Pakai</option>
+                                    </select>
+                                </div>   
                             </form>
                         </div>
                         <div class="modal-footer">

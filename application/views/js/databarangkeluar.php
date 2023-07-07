@@ -5,18 +5,40 @@
         $('#body-barang-keluar').on('click', '.btn-update', function () {
             var id = $(this).attr('data-id');
             var id_barang = $(this).attr('data-id_barang');
+            var id_bidang = $(this).attr('data-id_bidang');
             var nama = $(this).attr('data-nama');
-            var peminjaman = $(this).attr('data-peminjaman');
-            var pengembalian = $(this).attr('data-pengembalian');
+            var peminjam = $(this).attr('data-peminjam');
+            var tanggal = $(this).attr('data-tanggal');
             var jumlah = $(this).attr('data-jumlah');
-
+// console.log(id_bidang);
             $('#modal-update').modal('show');
 
             $('[name="id_update"]').val(id);
             $('[name="id_barang"]').val(id_barang);
+            $('[name="id_bidang_update"]').val(id_bidang).trigger('change');
             $('[name="nama_barang_update"]').val(nama);
-            $('[name="tanggal_peminjaman_update"]').val(peminjaman);
-            $('[name="tanggal_pengembalian_update"]').val(pengembalian);
+            $('[name="nama_peminjam_update"]').val(peminjam);
+            $('[name="tanggal_keluar_update"]').val(tanggal);
+            $('[name="jumlah_barang_update"]').val(jumlah);
+            $('[name="jumlah_sebelum"]').val(jumlah);
+        });
+
+        $('#body-barang-keluar').on('click', '.btn-validation', function() {
+            var id = $(this).attr('data-id');
+            var id_barang = $(this).attr('data-id_barang');
+            var nama = $(this).attr('data-nama');
+            var peminjam = $(this).attr('data-peminjam');
+            var peminjaman = $(this).attr('data-peminjaman');
+            var pengembalian = $(this).attr('data-pengembalian');
+            var jumlah = $(this).attr('data-jumlah');
+
+            $('#modal-validation').modal('show');
+
+            $('[name="id_update"]').val(id);
+            $('[name="id_barang"]').val(id_barang);
+            $('[name="nama_barang_update"]').val(nama);
+            $('[name="nama_peminjam_update"]').val(peminjam);
+            $('[name="tanggal_keluar_update"]').val(tanggal);
             $('[name="jumlah_barang_update"]').val(jumlah);
             $('[name="jumlah_sebelum"]').val(jumlah);
         });

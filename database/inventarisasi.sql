@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Jun 2023 pada 10.34
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.29
+-- Waktu pembuatan: 08 Jul 2023 pada 01.24
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `activity_logs` (
   `log_action` varchar(50) NOT NULL,
   `log_item` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `activity_logs`
@@ -262,7 +262,198 @@ INSERT INTO `activity_logs` (`id`, `log_user`, `log_type`, `log_action`, `log_it
 (219, 'admin', 'Data Barang', 'Mengubah', 'buku', '2023-06-11 16:22:28'),
 (220, 'admin', 'Data Barang Keluar', 'Menambah', 'buku', '2023-06-11 16:23:14'),
 (221, 'admin', 'Data Barang Keluar', 'Mengubah', 'buku', '2023-06-11 16:25:31'),
-(222, 'admin', 'Data Barang Keluar', 'Mengubah', 'buku', '2023-06-11 16:26:41');
+(222, 'admin', 'Data Barang Keluar', 'Mengubah', 'buku', '2023-06-11 16:26:41'),
+(223, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-06-11 17:00:22'),
+(224, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-06-11 17:00:39'),
+(225, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-06-11 17:01:09'),
+(226, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-06-11 17:02:49'),
+(227, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-06-11 17:02:53'),
+(228, 'kadis', 'Melakukan Logout', 'Logout', 'kadis', '2023-06-11 17:02:56'),
+(229, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-06-11 17:02:58'),
+(230, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-06-14 20:09:43'),
+(231, 'admin', 'Data Barang Keluar', 'Menambah', 'buku', '2023-06-14 20:12:34'),
+(232, 'admin', 'Data Barang Keluar', 'Menambah', 'buku', '2023-06-14 20:26:33'),
+(233, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-06-14 20:38:42'),
+(234, 'admin', 'Pengembalian Barang Keluar', 'Pengembalian', 'buku', '2023-06-14 20:55:52'),
+(235, 'admin', 'Validasi Barang Masuk', 'Validasi', 'buku', '2023-06-14 20:55:52'),
+(236, 'admin', 'Pengembalian Barang Keluar', 'Pengembalian', 'buku', '2023-06-14 21:02:46'),
+(237, 'admin', 'Validasi Barang Masuk', 'Validasi', 'buku', '2023-06-14 21:02:46'),
+(238, 'admin', 'Data Barang', 'Menambah', 'botol', '2023-06-14 21:17:48'),
+(239, 'admin', 'Data Barang', 'Menambah', 'Jaket', '2023-06-14 21:23:21'),
+(240, 'admin', 'Data Barang', 'Menambah', 'asdasd', '2023-06-14 21:23:56'),
+(241, 'admin', 'Data Barang', 'Menambah', 'asdasd', '2023-06-14 21:24:41'),
+(242, 'admin', 'Data Barang', 'Menambah', 'asdasd', '2023-06-14 21:26:55'),
+(243, 'admin', 'Data Barang', 'Menambah', 'kertas A4', '2023-06-14 21:27:19'),
+(244, 'admin', 'Data Barang', 'Mengubah', 'asdasd', '2023-06-14 21:30:39'),
+(245, 'admin', 'Data Barang', 'Mengubah', 'Jaket', '2023-06-14 21:30:42'),
+(246, 'admin', 'Data Barang', 'Mengubah', 'botol', '2023-06-14 21:30:44'),
+(247, 'admin', 'Data Barang', 'Mengubah', 'buku', '2023-06-14 21:30:46'),
+(248, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-06-14 22:56:29'),
+(249, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-06-14 22:56:31'),
+(250, 'kadis', 'Melakukan Logout', 'Logout', 'kadis', '2023-06-14 22:56:38'),
+(251, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-06-14 22:56:42'),
+(252, 'admin', 'Data Peminjaman Aset', 'Meminjam', 'Resort Takisung', '2023-06-14 23:24:46'),
+(253, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-06-15 17:45:20'),
+(254, 'admin', 'Data Peminjaman Aset', 'Mengubah', 'Resort Takisung', '2023-06-15 18:33:15'),
+(255, 'admin', 'Data Asset', 'Menambah', 'Resort Batakan', '2023-06-15 19:15:15'),
+(256, 'admin', 'Data Peminjaman Aset', 'Meminjam', 'Resort Takisung', '2023-06-15 19:17:57'),
+(257, 'admin', 'Data Peminjaman Aset', 'Meminjam', 'Resort Takisung', '2023-06-15 19:49:47'),
+(258, 'admin', 'Data Peminjaman Aset', 'Meminjam', 'Resort Takisung', '2023-06-15 19:53:16'),
+(259, 'admin', 'Validasi Penerimaan Asset', 'Validasi', 'Resort Takisung', '2023-06-15 20:22:11'),
+(260, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-03 09:46:09'),
+(261, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-03 09:47:25'),
+(262, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-03 09:52:47'),
+(263, 'admin', 'Data Barang', 'Menambah', 'Map', '2023-07-03 09:54:17'),
+(264, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-03 10:01:23'),
+(265, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-03 10:57:32'),
+(266, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-07-03 10:57:34'),
+(267, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 18:57:47'),
+(268, 'admin', 'Data Barang Masuk', 'Menambah', 'asdasd', '2023-07-05 19:05:32'),
+(269, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-05 19:05:38'),
+(270, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-07-05 19:05:40'),
+(271, 'kadis', 'Validasi Barang Masuk', 'Validasi', 'asdasd', '2023-07-05 19:05:46'),
+(272, 'kadis', 'Melakukan Logout', 'Logout', 'kadis', '2023-07-05 19:05:48'),
+(273, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 19:05:51'),
+(274, 'admin', 'Data Barang Keluar', 'Menambah', 'asdasd', '2023-07-05 19:11:58'),
+(275, 'admin', 'Data Supplier', 'Mengubah', 'aji', '2023-07-05 19:18:02'),
+(276, 'admin', 'Data Supplier', 'Mengubah', 'aji', '2023-07-05 19:18:07'),
+(277, 'admin', 'Data Supplier', 'Mengubah', 'aji', '2023-07-05 19:18:10'),
+(278, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 19:27:39'),
+(279, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 19:34:23'),
+(280, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 19:49:09'),
+(281, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 19:50:57'),
+(282, 'admin', 'Data Barang Masuk', 'Menambah', 'botol', '2023-07-05 20:05:08'),
+(283, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-05 20:05:13'),
+(284, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-07-05 20:05:16'),
+(285, 'kadis', 'Validasi Barang Masuk', 'Validasi', 'botol', '2023-07-05 20:05:20'),
+(286, 'admin', 'Data Bidang', 'Menambah', 'Pemasaran', '2023-07-05 20:45:15'),
+(287, 'admin', 'Data Bidang', 'Menambah', 'Sekretariat', '2023-07-05 20:46:08'),
+(288, 'admin', 'Data Bidang', 'Menambah', 'Destinasi', '2023-07-05 20:46:15'),
+(289, 'admin', 'Data bidang', 'Menghapus', 'Destinasi', '2023-07-05 20:46:17'),
+(290, 'admin', 'Data Bidang', 'Menambah', 'Destinasi', '2023-07-05 20:46:21'),
+(291, 'admin', 'Data Bidang', 'Mengubah', 'Destinasii', '2023-07-05 20:46:25'),
+(292, 'admin', 'Data Bidang', 'Mengubah', 'Destinasi', '2023-07-05 20:46:28'),
+(293, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 20:50:18'),
+(294, 'admin', 'Data Barang Keluar', 'Menambah', 'botol', '2023-07-05 20:51:41'),
+(295, 'admin', 'Data Barang Keluar', 'Mengubah', 'botol', '2023-07-05 20:57:26'),
+(296, 'admin', 'Data Barang Keluar', 'Mengubah', 'botol', '2023-07-05 20:57:33'),
+(297, 'admin', 'Data Barang Keluar', 'Mengubah', 'botol', '2023-07-05 20:58:18'),
+(298, 'admin', 'Data Barang Keluar', 'Mengubah', 'botol', '2023-07-05 20:59:17'),
+(299, 'admin', 'Data Barang Keluar', 'Mengubah', 'botol', '2023-07-05 20:59:38'),
+(300, 'admin', 'Data Barang Keluar', 'Mengubah', 'botol', '2023-07-05 21:03:04'),
+(301, 'admin', 'Data Barang', 'Menambah', 'kertas A4', '2023-07-05 21:16:29'),
+(302, 'admin', 'Data Barang', 'Menghapus', 'Map', '2023-07-05 21:16:38'),
+(303, 'admin', 'Data Barang', 'Menambah', 'Flashdisk', '2023-07-05 21:24:14'),
+(304, 'admin', 'Data Barang', 'Mengubah', 'kertas A4', '2023-07-05 21:24:24'),
+(305, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 21:28:10'),
+(306, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-05 21:28:16'),
+(307, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 21:28:19'),
+(308, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-05 21:28:22'),
+(309, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 21:28:25'),
+(310, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-05 21:37:25'),
+(311, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-07-05 21:37:30'),
+(312, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 21:41:57'),
+(313, 'admin', 'Data Barang Masuk', 'Menambah', 'Flashdisk', '2023-07-05 21:44:35'),
+(314, 'kadis', 'Validasi Barang Masuk', 'Validasi', 'Flashdisk', '2023-07-05 21:44:46'),
+(315, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 21:51:05'),
+(316, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-05 21:53:21'),
+(317, 'admin', 'Data Barang Masuk', 'Menambah', 'Flashdisk', '2023-07-05 21:53:43'),
+(318, 'admin', 'Data Barang Masuk', 'Menambah', 'Flashdisk', '2023-07-05 21:57:48'),
+(319, 'admin', 'Data Barang Keluar', 'Menambah', 'botol', '2023-07-05 22:44:42'),
+(320, 'admin', 'Pengembalian Barang Keluar', 'Pengembalian', 'botol', '2023-07-05 23:03:38'),
+(321, 'admin', 'Validasi Barang Masuk', 'Validasi', 'botol', '2023-07-05 23:03:38'),
+(322, 'admin', 'Data Barang Keluar', 'Menambah', 'Flashdisk', '2023-07-05 23:05:24'),
+(323, 'admin', 'Pengembalian Barang Keluar', 'Pengembalian', 'Flashdisk', '2023-07-05 23:05:52'),
+(324, 'admin', 'Validasi Barang Masuk', 'Validasi', 'Flashdisk', '2023-07-05 23:05:52'),
+(325, 'admin', 'Data Barang Keluar', 'Menambah', 'Flashdisk', '2023-07-05 23:06:22'),
+(326, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 06:20:58'),
+(327, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 06:39:13'),
+(328, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 06:39:15'),
+(329, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-06 06:39:16'),
+(330, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 06:39:18'),
+(331, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 06:39:19'),
+(332, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-06 06:57:39'),
+(333, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-07-06 06:57:45'),
+(334, 'admin', 'Data Barang Masuk', 'Menambah', 'kertas A4', '2023-07-06 07:25:36'),
+(335, 'kadis', 'Melakukan Logout', 'Logout', 'kadis', '2023-07-06 07:25:40'),
+(336, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-07-06 07:25:43'),
+(337, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-07-06 07:25:45'),
+(338, 'kadis', 'Validasi Barang Masuk', 'Validasi', 'kertas A4', '2023-07-06 07:25:50'),
+(339, 'admin', 'Data Bidang', 'Menambah', 'Ekonomi Kreatif', '2023-07-06 07:29:16'),
+(340, 'admin', 'Data Bidang', 'Mengubah', 'Pengembangan sdm ekraf', '2023-07-06 07:37:52'),
+(341, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-07-06 07:40:17'),
+(342, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-06 07:52:25'),
+(343, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 07:55:29'),
+(344, 'admin', 'Data Peminjaman Aset', 'Mengubah', 'Resort Takisung', '2023-07-06 09:31:10'),
+(345, 'admin', 'Data Peminjaman Aset', 'Meminjam', 'Resort Takisung', '2023-07-06 09:31:23'),
+(346, 'admin', 'Data Peminjaman Aset', 'Mengubah', 'Resort Takisung', '2023-07-06 09:31:36'),
+(347, 'admin', 'Validasi Penerimaan Asset', 'Validasi', 'Resort Takisung', '2023-07-06 09:31:41'),
+(348, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 15:06:12'),
+(349, 'admin', 'Data Peminjaman Aset', 'Meminjam', 'Resort Takisung', '2023-07-06 15:11:40'),
+(350, 'admin', 'Validasi Penerimaan Asset', 'Validasi', 'Resort Takisung', '2023-07-06 15:11:55'),
+(351, 'admin', 'Data Peminjaman Aset', 'Meminjam', 'Resort Takisung', '2023-07-06 15:18:08'),
+(352, 'admin', 'Data Peminjaman Aset', 'Meminjam', 'Resort Takisung', '2023-07-06 15:23:15'),
+(353, 'admin', 'Data Peminjaman Aset', 'Meminjam', 'Resort Takisung', '2023-07-06 15:30:38'),
+(354, 'admin', 'Data Peminjaman Asset', 'Menghapus', '1', '2023-07-06 15:30:40'),
+(355, 'admin', 'Data Peminjaman Aset', 'Meminjam', 'Resort Takisung', '2023-07-06 15:31:52'),
+(356, 'admin', 'Data Peminjaman Aset', 'Meminjam', 'Resort Takisung', '2023-07-06 15:32:02'),
+(357, 'admin', 'Data Peminjaman Asset', 'Menghapus', '1', '2023-07-06 15:32:05'),
+(358, 'admin', 'Data Peminjaman Asset', 'Menghapus', '10', '2023-07-06 15:32:38'),
+(359, 'admin', 'Data Peminjaman Aset', 'Meminjam', 'Resort Takisung', '2023-07-06 15:34:02'),
+(360, 'admin', 'Validasi Penerimaan Asset', 'Validasi', 'Resort Takisung', '2023-07-06 15:39:12'),
+(361, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 15:49:41'),
+(362, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 15:51:07'),
+(363, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 15:51:43'),
+(364, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-06 15:56:43'),
+(365, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 15:56:58'),
+(366, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-06 15:58:35'),
+(367, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 15:58:51'),
+(368, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 16:00:53'),
+(369, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 16:01:20'),
+(370, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 16:05:29'),
+(371, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 16:06:30'),
+(372, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 16:06:49'),
+(373, 'admin', 'Data Barang', 'Mengubah', 'kertas A4', '2023-07-06 17:22:05'),
+(374, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-06 17:22:31'),
+(375, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 17:22:33'),
+(376, 'admin', 'Data Barang Keluar', 'Menambah', 'Flashdisk', '2023-07-06 17:39:35'),
+(377, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 17:46:39'),
+(378, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-06 19:49:21'),
+(379, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-06 19:49:44'),
+(380, 'admin', 'Data Barang Masuk', 'Menghapus', 'asdasd', '2023-07-06 19:52:29'),
+(381, 'admin', 'Data Barang', 'Menghapus', 'asdasd', '2023-07-06 19:52:40'),
+(382, 'admin', 'Data Barang', 'Menghapus', 'asdasd', '2023-07-06 19:52:42'),
+(383, 'admin', 'Data Barang', 'Menghapus', 'asdasd', '2023-07-06 19:52:43'),
+(384, 'admin', 'Data Barang', 'Menghapus', 'Jaket', '2023-07-06 19:52:47'),
+(385, 'admin', 'Data Barang', 'Menghapus', 'kertas A4', '2023-07-06 19:52:48'),
+(386, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-07-06 19:54:38'),
+(387, 'kadis', 'Validasi Barang Masuk', 'Validasi', 'Flashdisk', '2023-07-06 19:54:48'),
+(388, 'kadis', 'Validasi Barang Masuk', 'Validasi', 'Flashdisk', '2023-07-06 19:54:50'),
+(389, 'admin', 'Data Barang', 'Menghapus', 'botol', '2023-07-06 19:55:19'),
+(390, 'admin', 'Data Barang', 'Mengubah', 'buku', '2023-07-06 19:55:26'),
+(391, 'admin', 'Data Barang', 'Mengubah', 'kertas A4', '2023-07-06 19:56:25'),
+(392, 'admin', 'Data Barang', 'Mengubah', 'Flashdisk', '2023-07-06 19:56:40'),
+(393, 'admin', 'Data Barang', 'Mengubah', 'Flashdisk', '2023-07-06 19:56:50'),
+(394, 'admin', 'Data Barang', 'Mengubah', 'kertas A4', '2023-07-06 19:56:56'),
+(395, 'admin', 'Data Barang', 'Mengubah', 'buku', '2023-07-06 19:57:00'),
+(396, 'admin', 'Data Barang Masuk', 'Menambah', 'Flashdisk', '2023-07-06 19:57:16'),
+(397, 'kadis', 'Validasi Barang Masuk', 'Validasi', 'Flashdisk', '2023-07-06 19:57:24'),
+(398, 'admin', 'Data Barang Keluar', 'Menambah', 'Flashdisk', '2023-07-06 19:59:10'),
+(399, 'admin', 'Data Barang Keluar', 'Mengubah', 'Flashdisk', '2023-07-06 19:59:24'),
+(400, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-07 14:04:13'),
+(401, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-07 19:00:07'),
+(402, 'admin', 'Melakukan Logout', 'Logout', 'admin', '2023-07-07 19:01:16'),
+(403, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-07 19:01:30'),
+(404, 'admin', 'Data Barang', 'Menambah', 'Map', '2023-07-07 20:38:26'),
+(405, 'admin', 'Data Barang Masuk', 'Menambah', 'Map', '2023-07-07 20:39:01'),
+(406, 'kadis', 'Melakukan Login', 'Login', 'kadis', '2023-07-07 20:39:28'),
+(407, 'kadis', 'Validasi Barang Masuk', 'Validasi', 'Map', '2023-07-07 20:39:44'),
+(408, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-07 20:57:37'),
+(409, 'admin', 'Melakukan Login', 'Login', 'admin', '2023-07-08 06:06:46'),
+(410, 'admin', 'Data Barang Keluar', 'Menambah', 'Map', '2023-07-08 06:28:34'),
+(411, 'admin', 'Data Barang Keluar', 'Menambah', 'Flashdisk', '2023-07-08 06:34:18'),
+(412, 'admin', 'Data Barang Keluar', 'Menambah', 'Flashdisk', '2023-07-08 06:44:15'),
+(413, 'admin', 'Data Barang Keluar', 'Menambah', 'Flashdisk', '2023-07-08 06:48:16');
 
 -- --------------------------------------------------------
 
@@ -273,18 +464,21 @@ INSERT INTO `activity_logs` (`id`, `log_user`, `log_type`, `log_action`, `log_it
 CREATE TABLE `barang_keluar` (
   `id` int(11) NOT NULL,
   `id_barang` int(11) NOT NULL,
-  `tanggal_peminjaman` date NOT NULL,
-  `tanggal_pengembalian` date NOT NULL,
+  `id_bidang` int(11) NOT NULL,
+  `nama_peminjam` varchar(50) NOT NULL,
+  `tanggal_keluar` date NOT NULL,
   `jumlah_barang` int(11) NOT NULL,
+  `validation_user_id` int(10) DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `barang_keluar`
 --
 
-INSERT INTO `barang_keluar` (`id`, `id_barang`, `tanggal_peminjaman`, `tanggal_pengembalian`, `jumlah_barang`, `created_at`) VALUES
-(17, 20, '2023-06-11', '2023-06-17', 4, '2023-06-11 16:23:14');
+INSERT INTO `barang_keluar` (`id`, `id_barang`, `id_bidang`, `nama_peminjam`, `tanggal_keluar`, `jumlah_barang`, `validation_user_id`, `created_at`) VALUES
+(30, 29, 4, 'Achmad', '2023-07-08', 15, NULL, '2023-07-08 06:44:15'),
+(31, 29, 5, 'Yasir', '2023-07-09', 10, NULL, '2023-07-08 06:48:16');
 
 -- --------------------------------------------------------
 
@@ -297,18 +491,40 @@ CREATE TABLE `barang_masuk` (
   `id_barang` int(11) NOT NULL,
   `tanggal_masuk` date NOT NULL,
   `jumlah_barang` int(11) NOT NULL,
+  `id_supplier` int(11) DEFAULT NULL,
   `validation_at` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `barang_masuk`
 --
 
-INSERT INTO `barang_masuk` (`id`, `id_barang`, `tanggal_masuk`, `jumlah_barang`, `validation_at`, `created_at`) VALUES
-(25, 20, '2023-06-11', 10, '2023-06-11 08:39:14', '2023-06-11 14:32:06'),
-(26, 20, '2023-06-11', 5, NULL, '2023-06-11 14:47:05'),
-(27, 20, '2023-06-06', 12, NULL, '2023-06-11 16:06:11');
+INSERT INTO `barang_masuk` (`id`, `id_barang`, `tanggal_masuk`, `jumlah_barang`, `id_supplier`, `validation_at`, `created_at`) VALUES
+(40, 29, '2023-07-06', 100, 1, '2023-07-06 13:57:24', '2023-07-06 19:57:16'),
+(41, 30, '2023-07-07', 100, 1, '2023-07-07 14:39:44', '2023-07-07 20:39:01');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bidang`
+--
+
+CREATE TABLE `bidang` (
+  `id` int(11) NOT NULL,
+  `nama_bidang` varchar(50) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `bidang`
+--
+
+INSERT INTO `bidang` (`id`, `nama_bidang`, `created_at`) VALUES
+(1, 'Pemasaran', '2023-07-05 20:45:15'),
+(2, 'Sekretariat', '2023-07-05 20:46:08'),
+(4, 'Destinasi', '2023-07-05 20:46:21'),
+(5, 'Pengembangan sdm ekraf', '2023-07-06 07:29:16');
 
 -- --------------------------------------------------------
 
@@ -321,14 +537,15 @@ CREATE TABLE `data_asset` (
   `nama_asset` varchar(50) NOT NULL,
   `tempat` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `data_asset`
 --
 
 INSERT INTO `data_asset` (`id`, `nama_asset`, `tempat`, `created_at`) VALUES
-(1, 'Resort Takisung', 'Pantai Takisung, Pelaihari, Kab. Tanah Laut', '2023-06-10 17:05:11');
+(1, 'Resort Takisung', 'Pantai Takisung, Pelaihari, Kab. Tanah Laut', '2023-06-10 17:05:11'),
+(2, 'Resort Batakan', 'Pantai Batakan, Pelaihari, Kab. Tanah Laut', '2023-06-15 19:15:15');
 
 -- --------------------------------------------------------
 
@@ -341,16 +558,19 @@ CREATE TABLE `data_barang` (
   `kode_barang` bigint(20) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
   `harga_barang` int(11) NOT NULL,
-  `nama_supplier` varchar(50) DEFAULT NULL,
+  `jenis_barang` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `data_barang`
 --
 
-INSERT INTO `data_barang` (`id`, `kode_barang`, `nama_barang`, `harga_barang`, `nama_supplier`, `created_at`) VALUES
-(20, 8992761002039, 'buku', 10000, 'achmad', '2023-06-11 14:14:37');
+INSERT INTO `data_barang` (`id`, `kode_barang`, `nama_barang`, `harga_barang`, `jenis_barang`, `created_at`) VALUES
+(20, 10000000003, 'buku', 100000, 'Habis Pakai', '2023-06-11 14:14:37'),
+(26, 10000000002, 'kertas A4', 10000, 'Habis Pakai', '2023-06-14 21:27:19'),
+(29, 10000000001, 'Flashdisk', 50000, 'Tidak Habis', '2023-07-05 21:24:14'),
+(30, 10000000004, 'Map', 5000, 'Habis Pakai', '2023-07-07 20:38:26');
 
 -- --------------------------------------------------------
 
@@ -363,7 +583,7 @@ CREATE TABLE `groups` (
   `name` varchar(50) NOT NULL,
   `slug` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `groups`
@@ -382,14 +602,14 @@ INSERT INTO `groups` (`id`, `name`, `slug`, `created_at`) VALUES
 
 CREATE TABLE `menus` (
   `id` int(11) NOT NULL,
-  `name` varchar(25) NOT NULL,
-  `slug` varchar(25) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `slug` varchar(50) NOT NULL,
   `icon` varchar(50) NOT NULL,
   `sequence` int(11) DEFAULT NULL,
   `parrent_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `menus`
@@ -400,12 +620,12 @@ INSERT INTO `menus` (`id`, `name`, `slug`, `icon`, `sequence`, `parrent_id`, `gr
 (2, 'Data Barang', 'data-barang', 'fas fa-archive', 2, 0, 1, '2022-12-20 12:40:50'),
 (3, 'Barang Masuk', 'barang-masuk', 'fas fa-arrow-circle-down', 3, 0, 1, '2022-12-20 12:40:50'),
 (4, 'Barang Keluar', 'barang-keluar', 'fas fa-arrow-alt-circle-up', 4, 0, 1, '2022-12-20 12:40:50'),
-(5, 'Laporan', 'laporan', 'fas fa-clipboard', 7, 0, 1, '2022-12-20 12:40:50'),
-(6, 'Laporan Barang Masuk', 'laporan-barang-masuk', '', 0, 5, 1, '2022-12-20 12:40:50'),
-(7, 'Laporan Barang Keluar', 'laporan-barang-keluar', '', 0, 5, 1, '2022-02-05 15:07:06'),
-(8, 'Laporan Data Barang', 'laporan-data-barang', '', 0, 5, 1, '2022-02-05 15:07:06'),
-(9, 'Laporan Data User', 'laporan-data-user', '', 0, 5, 1, '2022-02-05 15:07:06'),
-(10, 'Data User', 'data-user', 'fas fa-user', 5, 0, 1, '2022-12-20 12:40:50'),
+(5, 'Laporan', 'laporan', 'fas fa-clipboard', 10, 0, 1, '2022-12-20 12:40:50'),
+(6, 'Laporan Barang Masuk', 'laporan-barang-masuk', '', 2, 5, 1, '2022-12-20 12:40:50'),
+(7, 'Laporan Barang Keluar', 'laporan-barang-keluar', '', 3, 5, 1, '2022-02-05 15:07:06'),
+(8, 'Laporan Data Barang', 'laporan-data-barang', '', 1, 5, 1, '2022-02-05 15:07:06'),
+(9, 'Laporan Data User', 'laporan-data-user', '', 9, 5, 1, '2022-02-05 15:07:06'),
+(10, 'Data User', 'data-user', 'fas fa-user', 9, 0, 1, '2022-12-20 12:40:50'),
 (13, 'Dashboard', 'dashboard', 'icon-home', 1, 0, 2, '2022-12-20 12:40:50'),
 (14, 'Data Barang', 'data-barang', 'fas fa-archive', 2, 0, 2, '2022-12-20 12:40:50'),
 (15, 'Barang Masuk', 'barang-masuk', 'fas fa-arrow-circle-down', 3, 0, 2, '2022-12-20 12:40:50'),
@@ -422,9 +642,63 @@ INSERT INTO `menus` (`id`, `name`, `slug`, `icon`, `sequence`, `parrent_id`, `gr
 (28, 'Laporan Data User', 'laporan-data-user', '', 0, 24, 3, '2022-02-05 15:07:06'),
 (30, 'Validasi Barang Masuk', 'validasi-barang-masuk', 'icon-check', 1, 0, 3, '2022-12-20 12:40:50'),
 (31, 'Data Asset', 'data-asset', 'fas fa-box', 5, 0, 1, '2023-06-10 16:49:56'),
-(32, 'Laporan Data Asset', 'laporan-data-asset', '', 0, 5, 1, '2022-02-05 15:07:06'),
+(32, 'Laporan Data Asset', 'laporan-data-asset', '', 6, 5, 1, '2022-02-05 15:07:06'),
 (33, 'Laporan Data Asset', 'laporan-data-asset', '', 0, 24, 3, '2022-02-05 15:07:06'),
-(34, 'Laporan Barang Pending', 'laporan-barang-pending', '', 0, 24, 3, '2022-02-05 15:07:06');
+(34, 'Laporan Barang Pending', 'laporan-barang-pending', '', 0, 24, 3, '2022-02-05 15:07:06'),
+(37, 'Peminjaman Asset', 'peminjaman-asset', 'fas fa-box', 6, 0, 1, '2023-06-10 16:49:56'),
+(38, 'Data Supplier', 'data-supplier', 'fas fa-archive', 7, 0, 1, '2022-12-20 12:40:50'),
+(39, 'Data Bidang', 'data-bidang', 'fas fa-box', 7, 0, 1, '2023-06-10 16:49:56'),
+(40, 'Laporan Supplier', 'laporan-data-supplier', '', 7, 5, 1, '2022-02-05 15:07:06'),
+(41, 'Laporan Data Bidang', 'laporan-data-bidang', '', 8, 5, 1, '2022-02-05 15:07:06'),
+(42, 'Laporan Barang Pending', 'laporan-barang-pending', '', 5, 5, 1, '2022-02-05 15:07:06'),
+(43, 'Laporan Peminjaman Asset', 'laporan-data-peminjaman-asset', '', 7, 5, 1, '2022-02-05 15:07:06'),
+(44, 'Laporan Penerimaan Asset', 'laporan-terima-data-peminjaman-asset', '', 7, 5, 1, '2022-02-05 15:07:06');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `peminjaman_asset`
+--
+
+CREATE TABLE `peminjaman_asset` (
+  `id` int(11) NOT NULL,
+  `id_asset` int(11) NOT NULL,
+  `nama_peminjam` varchar(50) NOT NULL,
+  `tanggal_peminjaman` date NOT NULL,
+  `tanggal_pengembalian` date NOT NULL,
+  `tgl_validation_pengembalian` datetime DEFAULT NULL,
+  `validation_user_id` int(10) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `peminjaman_asset`
+--
+
+INSERT INTO `peminjaman_asset` (`id`, `id_asset`, `nama_peminjam`, `tanggal_peminjaman`, `tanggal_pengembalian`, `tgl_validation_pengembalian`, `validation_user_id`, `created_at`) VALUES
+(12, 1, 'Achmad', '2023-07-06', '2023-07-06', '2023-07-06 09:39:12', 1, '2023-07-06 15:34:02');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `id` int(11) NOT NULL,
+  `nama_supplier` varchar(100) NOT NULL,
+  `no_telp` varchar(20) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `supplier`
+--
+
+INSERT INTO `supplier` (`id`, `nama_supplier`, `no_telp`, `alamat`, `created_at`) VALUES
+(1, 'wira', '081217762551', 'jl. perintis', '2023-07-03 10:22:24'),
+(2, 'aji', '081217762551', 'jl. perintis', '2023-07-03 10:22:24');
 
 -- --------------------------------------------------------
 
@@ -443,7 +717,7 @@ CREATE TABLE `users` (
   `cookie` varchar(50) DEFAULT NULL,
   `status` int(11) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `users`
@@ -472,14 +746,22 @@ ALTER TABLE `activity_logs`
 ALTER TABLE `barang_keluar`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_barang` (`id_barang`),
-  ADD KEY `barang_keluar_id_barang_IDX` (`id_barang`) USING BTREE;
+  ADD KEY `barang_keluar_id_barang_IDX` (`id_barang`) USING BTREE,
+  ADD KEY `data_bidang_FK` (`id_bidang`);
 
 --
 -- Indeks untuk tabel `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_barang` (`id_barang`);
+  ADD KEY `id_barang` (`id_barang`),
+  ADD KEY `id_supplier` (`id_supplier`);
+
+--
+-- Indeks untuk tabel `bidang`
+--
+ALTER TABLE `bidang`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `data_asset`
@@ -507,6 +789,19 @@ ALTER TABLE `menus`
   ADD KEY `menus_group_id_IDX` (`group_id`) USING BTREE;
 
 --
+-- Indeks untuk tabel `peminjaman_asset`
+--
+ALTER TABLE `peminjaman_asset`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `foreign_key_asset` (`id_asset`);
+
+--
+-- Indeks untuk tabel `supplier`
+--
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
@@ -521,31 +816,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=414;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang_keluar`
 --
 ALTER TABLE `barang_keluar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT untuk tabel `bidang`
+--
+ALTER TABLE `bidang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_asset`
 --
 ALTER TABLE `data_asset`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_barang`
 --
 ALTER TABLE `data_barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `groups`
@@ -557,7 +858,19 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT untuk tabel `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT untuk tabel `peminjaman_asset`
+--
+ALTER TABLE `peminjaman_asset`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT untuk tabel `supplier`
+--
+ALTER TABLE `supplier`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
@@ -573,19 +886,27 @@ ALTER TABLE `users`
 -- Ketidakleluasaan untuk tabel `barang_keluar`
 --
 ALTER TABLE `barang_keluar`
-  ADD CONSTRAINT `barang_keluar_FK` FOREIGN KEY (`id_barang`) REFERENCES `data_barang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `barang_keluar_FK` FOREIGN KEY (`id_barang`) REFERENCES `data_barang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `data_bidang_FK` FOREIGN KEY (`id_bidang`) REFERENCES `bidang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
-  ADD CONSTRAINT `foreign_key_barang` FOREIGN KEY (`id_barang`) REFERENCES `data_barang` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `barang_masuk_FK` FOREIGN KEY (`id_supplier`) REFERENCES `supplier` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `barang_masuk_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `data_barang` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `menus`
 --
 ALTER TABLE `menus`
   ADD CONSTRAINT `menus_FK` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `peminjaman_asset`
+--
+ALTER TABLE `peminjaman_asset`
+  ADD CONSTRAINT `foreign_key_asset` FOREIGN KEY (`id_asset`) REFERENCES `data_asset` (`id`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `users`

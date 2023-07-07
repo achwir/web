@@ -68,14 +68,18 @@ $route['admin/barang-masuk'] = 'Admin/DataBarangMasuk';
 $route['admin/barang-keluar'] = 'Admin/DataBarangKeluar';
 $route['admin/data-user'] = 'Admin/DataUser';
 $route['admin/data-asset'] = 'Admin/DataAsset';
+$route['admin/peminjaman-asset'] = 'Admin/DataPeminjamanAsset';
+$route['admin/data-supplier'] = 'Admin/DataSupplier';
+$route['admin/data-bidang'] = 'Admin/DataBidang';
 
 // Route Sekretaris
 $route['sekretaris/dashboard'] = 'Sekretaris/Dashboard';
 $route['sekretaris/data-barang'] = 'Sekretaris/DataBarang';
 $route['sekretaris/barang-masuk'] = 'Sekretaris/DataBarangMasuk';
 $route['sekretaris/barang-keluar'] = 'Sekretaris/DataBarangKeluar';
+$route['sekretaris/data-supplier'] = 'Sekretaris/DataSupplier';
 
-// Route Sekretaris
+// Route Kadis
 $route['kadis/dashboard'] = 'Kadis/Dashboard';
 
 // Route Data Barang
@@ -83,10 +87,27 @@ $route['data-barang/insert'] = 'Admin/DataBarang/insert';
 $route['data-barang/delete/(:any)'] = 'Admin/DataBarang/delete/$1';
 $route['data-barang/update'] = 'Admin/DataBarang/update';
 
+// Route Data Supplier
+$route['data-supplier/insert'] = 'Admin/DataSupplier/insert';
+$route['data-supplier/delete/(:any)'] = 'Admin/DataSupplier/delete/$1';
+$route['data-supplier/update'] = 'Admin/DataSupplier/update';
+
 // Route Data Asset
 $route['data-asset/insert'] = 'Admin/DataAsset/insert';
 $route['data-asset/delete/(:any)'] = 'Admin/DataAsset/delete/$1';
 $route['data-asset/update'] = 'Admin/DataAsset/update';
+
+// Route Data Bidang
+$route['data-bidang/insert'] = 'Admin/DataBidang/insert';
+$route['data-bidang/delete/(:any)'] = 'Admin/DataBidang/delete/$1';
+$route['data-bidang/update'] = 'Admin/DataBidang/update';
+
+// Route Peminjaman Asset
+$route['peminjaman-asset/insert'] = 'Admin/DataPeminjamanAsset/insert';
+$route['peminjaman-asset/delete/(:any)'] = 'Admin/DataPeminjamanAsset/delete/$1';
+$route['peminjaman-asset/update'] = 'Admin/DataPeminjamanAsset/update';
+$route['peminjaman-asset/validation'] = 'Admin/DataPeminjamanAsset/validation';
+
 
 // Route Data Barang Masuk
 $route['barang-masuk/insert'] = 'Admin/DataBarangMasuk/insert';
@@ -99,6 +120,7 @@ $route['barang-masuk/reject/(:any)'] = 'Kadis/ValidasiBarang/reject/$1';
 $route['barang-keluar/insert'] = 'Admin/DataBarangKeluar/insert';
 $route['barang-keluar/delete/(:any)'] = 'Admin/DataBarangKeluar/delete/$1';
 $route['barang-keluar/update'] = 'Admin/DataBarangKeluar/update';
+$route['barang-keluar/validation'] = 'Admin/DataBarangKeluar/validation';
 
 
 // Route Data User
@@ -108,16 +130,27 @@ $route['data-user/update'] = 'Admin/DataUser/update';
 
 // Laporan Admin
 $route['admin/laporan-data-barang'] = 'Admin/Laporan/databarang';
-$route['admin/laporan-data-asset'] = 'Admin/Laporan/dataasset';
 $route['admin/laporan-barang-masuk'] = 'Admin/Laporan/barangmasuk';
 $route['admin/laporan-barang-keluar'] = 'Admin/Laporan/barangkeluar';
+$route['admin/laporan-pengembalian-barang'] = 'Admin/Laporan/pengembalian';
+$route['admin/laporan-data-asset'] = 'Admin/Laporan/dataasset';
+$route['admin/laporan-data-peminjaman-asset'] = 'Admin/Laporan/datapeminjamanasset';
+$route['admin/laporan-terima-data-peminjaman-asset'] = 'Admin/Laporan/terimadatapeminjamanasset';
 $route['admin/laporan-data-user'] = 'Admin/Laporan/datauser';
+$route['admin/laporan-data-supplier'] = 'Admin/Laporan/datasupplier';
 $route['admin/laporan-user'] = 'Admin/Laporan/exportUser';
 $route['admin/laporan-transaksi'] = 'Admin/Laporan/transaksi';
+$route['admin/laporan-data-bidang'] = 'Admin/Laporan/databidang';
+$route['admin/laporan-barang-pending'] = 'Admin/Laporan/barangpending';
 $route['admin/export-barang-masuk'] = 'Admin/Laporan/exportBarangmasuk';
 $route['admin/export-barang-keluar'] = 'Admin/Laporan/exportBarangkeluar';
+$route['admin/export-pengembalian-barang'] = 'Admin/Laporan/exportPengembalianBarang';
 $route['admin/export-data-barang'] = 'Admin/Laporan/exportDataBarang';
 $route['admin/export-data-asset'] = 'Admin/Laporan/exportDataAsset';
+$route['admin/export-data-peminjaman-asset'] = 'Admin/Laporan/exportDataPeminjamanAsset';
+$route['admin/export-data-supplier'] = 'Admin/Laporan/exportDataSupplier';
+$route['admin/export-data-bidang'] = 'Admin/Laporan/exportDataBidang';
+$route['admin/export-barang-pending'] = 'Admin/Laporan/exportBarangpending';
 
 // Laporan Sekretaris
 $route['sekretaris/laporan-data-barang'] = 'Sekretaris/Laporan/databarang';

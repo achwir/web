@@ -34,20 +34,25 @@
         <tr>
 			<th scope="col">No.</th>
 			<th scope="col">Nama Barang</th>
-			<th scope="col">Tanggal Keluar</th>
-			<th scope="col">Jumlah Barang</th>
+            <th scope="col">Nama Peminjam</th>
+            <th scope="col">Nama Bidang</th>
+            <th scope="col">Tanggal Keluar</th>
+            <th scope="col">Jumlah Barang</th>
         </tr>
 
         <?php if (!empty($barang_keluar)) : ?>
-			<?php $i = 1; foreach ($barang_keluar as $bk) : ?>
+			<?php $i = 1; foreach ($barang_keluar as $bk) { 
+                ?>
 				<tr>
 					<th scope="row"><?= $i; ?></th>
 					<td><?= $bk['nama_barang']; ?></td>
+					<td><?= $bk['nama_peminjam']; ?></td>
+					<td><?= $bk['nama_bidang']; ?></td>
 					<td><?= $bk['tanggal_keluar']; ?></td>
 					<td><?= $bk['jumlah_barang']; ?></td>
 				</tr>
 				<?php $i++; ?>
-			<?php endforeach; ?>
+			<?php } ?>
         <?php else : ?>
             <h3>Tidak ada data!</h3>
         <?php endif; ?>

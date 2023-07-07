@@ -6,26 +6,30 @@ class DataBarangMasukModel extends CI_Model {
 
     function all()
     {
-        $this->db->select('db.nama_barang, db.nama_supplier, bm.*');
+        $this->db->select('db.nama_barang, su.nama_supplier, bm.*');
         $this->db->from('barang_masuk as bm');
         $this->db->join('data_barang as db', 'db.id = bm.id_barang');
+        $this->db->join('supplier as su', 'su.id = bm.id_supplier');
+        $this->db->order_by('bm.created_at', 'DESC');
         return $this->db->get();
     }
 
     function not_validation()
     {
-        $this->db->select('db.nama_barang, db.nama_supplier, bm.*');
+        $this->db->select('db.nama_barang, su.nama_supplier, bm.*');
         $this->db->from('barang_masuk as bm');
         $this->db->join('data_barang as db', 'db.id = bm.id_barang');
+        $this->db->join('supplier as su', 'su.id = bm.id_supplier');
         $this->db->where('bm.validation_at', NULL);
         return $this->db->get();
     }
 
     function validated()
     {
-        $this->db->select('db.nama_barang, db.nama_supplier, bm.*');
+        $this->db->select('db.nama_barang, su.nama_supplier, bm.*');
         $this->db->from('barang_masuk as bm');
         $this->db->join('data_barang as db', 'db.id = bm.id_barang');
+        $this->db->join('supplier as su', 'su.id = bm.id_supplier');
         $this->db->where('bm.validation_at is NOT NULL');
         return $this->db->get();
     }

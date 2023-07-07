@@ -26,6 +26,22 @@
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group">
+                                        <label for="">Supplier</label>
+                                        <select class="form-control mr-sm-2 select2" id="inlineFormCustomSelect" name="id_supplier" required>
+                                            <option value="">Pilih Supplier</option>
+                                        <?php
+                                        $var = $this->db->get('supplier')->result();
+
+                                        foreach ($var as $v){
+                                        echo '<option value="'.$v->id.'">'.$v->nama_supplier.'</option>';
+                                        }
+                                        ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="form-group">
                                         <label for="">Dari Tanggal</label>
                                         <input type="date" class="form-control" name="start_date" required>
                                     </div>

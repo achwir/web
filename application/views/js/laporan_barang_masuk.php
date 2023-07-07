@@ -65,11 +65,13 @@
 
         $('#btn-export').click(function (e) { 
             e.preventDefault();
+            var id_supplier = $('[name="id_supplier"]').val();
             var dari = $('[name="start_date"]').val();
             var sampai = $('[name="end_date"]').val();
 
-            var page = "export-barang-masuk?dari=" + dari + '&sampai=' + sampai; 
+            var page = "export-barang-masuk?id_supplier=" + id_supplier + "&dari=" + dari + '&sampai=' + sampai; 
             window.location = page; 
+            // console.log(page);
         });
     });
 </script>

@@ -31,8 +31,9 @@ class DataBarangKeluar extends MY_Controller {
         if($kode_barang->num_rows() > 0){
             $barang = $kode_barang->row();
             $data['id_barang'] = $barang->id;
-            $data['tanggal_peminjaman'] = $this->input->post('tanggal_peminjaman');
-            $data['tanggal_pengembalian'] = $this->input->post('tanggal_pengembalian');
+            $data['id_bidang'] = $this->input->post('id_bidang');
+            $data['nama_peminjam'] = $this->input->post('nama_peminjam');
+            $data['tanggal_keluar'] = $this->input->post('tanggal_keluar');
             $data['jumlah_barang'] = $this->input->post('jumlah_barang');
     
             $stok_lama = $this->DataBarangMasukModel->sum_stok($data['id_barang']);
@@ -63,8 +64,9 @@ class DataBarangKeluar extends MY_Controller {
     {
         $id = $this->input->post('id_update');
         $id_barang = $this->input->post('id_barang');
-        $data['tanggal_peminjaman'] = $this->input->post('tanggal_peminjaman_update');
-        $data['tanggal_pengembalian'] = $this->input->post('tanggal_pengembalian_update');
+        $data['id_bidang'] = $this->input->post('id_bidang_update');
+        $data['nama_peminjam'] = $this->input->post('nama_peminjam_update');
+        $data['tanggal_keluar'] = $this->input->post('tanggal_keluar_update');
         $data['jumlah_barang'] = $this->input->post('jumlah_barang_update');
         $jumlah_sebelum = $this->input->post('jumlah_sebelum');
         
@@ -107,6 +109,35 @@ class DataBarangKeluar extends MY_Controller {
             redirect(base_url($this->session->userdata('group_slug').'/barang-keluar'));
         }else{
             $this->session->set_flashdata('notif-error', 'Data Gagal Dihapus ');
+            redirect(base_url($this->session->userdata('group_slug').'/barang-keluar'));
+        }
+    }
+    
+    public function validation()
+    {
+        $id = $this->input->post('id_update');
+        $id_barang = $this->input->post('id_barang');
+        $data['tgl_validation_pengembalian'] = date('Y-m-d H:i:s');
+        $data['validation_user_id'] = $this->session->userdata('id');
+
+        $act = $this->DataBarangKeluarModel->update($data, $id);
+        $barang = $this->db->get_where('data_barang', ['id' => $id_barang])->row();
+
+        $dbm['id_barang'] = $barang->id;
+        $dbm['tanggal_masuk'] = date('Y-m-d H:i:s');
+        $dbm['validation_at'] = date('Y-m-d H:i:s');
+        $dbm['jumlah_barang'] = $this->input->post('jumlah_barang_update');
+
+        $act = $this->DataBarangMasukModel->insert($dbm);
+        log_activity('Pengembalian Barang Keluar', 'Pengembalian', $barang->nama_barang);
+
+        log_activity('Validasi Barang Masuk', 'Validasi', $barang->nama_barang);
+
+        if ($act) {
+            $this->session->set_flashdata('notif-success', 'Data Berhasil Validasi ');
+            redirect(base_url($this->session->userdata('group_slug').'/barang-keluar'));
+        }else{
+            $this->session->set_flashdata('notif-error', 'Data Gagal Validasi ');
             redirect(base_url($this->session->userdata('group_slug').'/barang-keluar'));
         }
     }

@@ -30,10 +30,13 @@ class DataBarang extends MY_Controller {
     {
         $data['kode_barang'] = $this->input->post('kode_barang');
         $data['nama_barang'] = $this->input->post('nama_barang');
-        $data['nama_supplier'] = $this->input->post('nama_supplier');
         // $data['stok'] = $this->input->post('stok');
         $data['harga_barang'] = $this->input->post('harga_barang');
+        $data['jenis_barang'] = $this->input->post('jenis_barang');
 
+        $barcode = $this->set_barcode($data['kode_barang']);
+        // var_dump($barcode);
+        // die;
         $act = $this->DataBarangModel->insert($data);
         log_activity('Data Barang', 'Menambah', $data['nama_barang']);
         if ($act) {
@@ -50,10 +53,12 @@ class DataBarang extends MY_Controller {
         $id = $this->input->post('id_update');
         $data['kode_barang'] = $this->input->post('kode_barang_update');
         $data['nama_barang'] = $this->input->post('nama_barang_update');
-        $data['nama_supplier'] = $this->input->post('nama_supplier_update');
         $data['harga_barang'] = $this->input->post('harga_barang_update');
+        $data['jenis_barang'] = $this->input->post('jenis_barang_update');
 
         $act = $this->DataBarangModel->update($data, $id);
+        $barcode = $this->set_barcode($data['kode_barang']);
+
         log_activity('Data Barang', 'Mengubah', $data['nama_barang']);
         if ($act) {
             $this->session->set_flashdata('notif-success', 'Data Berhasil diubah ');
@@ -77,5 +82,19 @@ class DataBarang extends MY_Controller {
             redirect(base_url($this->session->userdata('group_slug').'/data-barang'));
         }
     }
+
+    private function set_barcode($code)
+	{
+		// Load library
+		$this->load->library('Zend');
+		// Load in folder Zend
+		$this->zend->load('Zend/Barcode');
+		// Generate barcode
+		$imageResource = Zend_Barcode::factory('code128', 'image', array('text'=>$code), array())->draw();
+        imagepng($imageResource, 'assets/barcode/'.$code.'.png');
+
+        return $imageResource;
+	}
+    
 }
 ?>

@@ -5,6 +5,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
+
                         <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Data Barang Masuk</h3>
                     </div>
                 </div>
@@ -74,7 +75,7 @@
             </div>
             <div id="modal-tambah" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title" id="myModalLabel">Tambah Data Barang</h4>
@@ -85,7 +86,25 @@
                             <form action="<?= base_url('barang-masuk/insert') ?>" method="POST" id="form-tambah">
                                 <div class="form-group">
                                     <label for="">Kode Barang</label>
-                                    <input type="text" class="form-control" name="kode_barang" required>
+                                    <select class="form-control mr-sm-2 select2" name="kode_barang" required>
+                                    <?php
+                                    foreach ($databarang as $v){
+                                    echo '<option value="'.$v->kode_barang.'">'.$v->kode_barang.' | '.$v->nama_barang.'</option>';
+                                    }
+                                    ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Nama Supplier</label>
+                                    <select class="form-control mr-sm-2 select2" id="inlineFormCustomSelect" name="id_supplier" required>
+                                    <?php
+                                    $var = $this->db->get('supplier')->result();
+
+                                    foreach ($var as $v){
+                                    echo '<option value="'.$v->id.'">'.$v->nama_supplier.'</option>';
+                                    }
+                                    ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Tanggal Masuk</label>
@@ -107,7 +126,7 @@
 
             <div id="modal-update" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title" id="myModalLabel">Update Data Barang Masuk</h4>

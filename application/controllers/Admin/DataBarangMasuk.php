@@ -7,12 +7,15 @@ class DataBarangMasuk extends MY_Controller {
         parent::__construct();
         $this->load->model('DataBarangMasukModel');
         $this->load->model('DataBarangModel');
+        $this->load->model('DataSupplierModel');
+
     }
 
 
 	public function index()
 	{
         $conf['title'] = 'Barang Masuk';
+        $data['databarang'] = $this->DataBarangModel->all()->result();
         $data['databarangmasuk'] = $this->DataBarangMasukModel->validated()->result();
         $data['js'] = 'databarangmasuk';
 
@@ -30,6 +33,7 @@ class DataBarangMasuk extends MY_Controller {
         if($kode_barang->num_rows() > 0){
             $barang = $kode_barang->row();
             $data['id_barang'] = $barang->id;
+            $data['id_supplier'] = $this->input->post('id_supplier');
             $data['tanggal_masuk'] = $this->input->post('tanggal_masuk');
             $data['jumlah_barang'] = $this->input->post('jumlah_barang');
     
@@ -59,6 +63,7 @@ class DataBarangMasuk extends MY_Controller {
     {
         $id = $this->input->post('id_update');
         $id_barang = $this->input->post('id_barang');
+        $id_supplier = $this->input->post('id_supplier');
         $data['tanggal_masuk'] = $this->input->post('tanggal_masuk_update');
         $data['jumlah_barang'] = $this->input->post('jumlah_barang_update');
         $jumlah_sebelum = $this->input->post('jumlah_sebelum');

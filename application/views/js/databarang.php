@@ -50,17 +50,17 @@
         $('#body-data-barang').on('click', '.btn-update', function () {
             var id = $(this).attr('data-id');
             var nama = $(this).attr('data-nama');
-            var supplier = $(this).attr('data-supplier');
             var kode = $(this).attr('data-kode');
             var harga = $(this).attr('data-harga');
+            var jenis = $(this).attr('data-jenis');
 
             $('#modal-update').modal('show');
 
             $('[name="id_update"]').val(id);
             $('[name="nama_barang_update"]').val(nama);
-            $('[name="nama_supplier_update"]').val(supplier);
             $('[name="kode_barang_update"]').val(kode);
             $('[name="harga_barang_update"]').val(harga);
+            $('[name="jenis_barang_update"]').val(jenis).trigger('change');
         });
     });
 </script>

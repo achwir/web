@@ -23,26 +23,26 @@
                         <div class="card-body">
                             <form action="<?= base_url('admin/laporan-barang-keluar') ?>" method="POST" id="form-tambah">
 
-                            <div class="row">
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <label for="">Dari Tanggal</label>
-                                        <input type="date" class="form-control" name="start_date" required>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <div class="form-group">
+                                            <label for="">Dari Tanggal</label>
+                                            <input type="date" class="form-control" name="start_date" required>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <label for="">Sampai Tanggal</label>
-                                        <input type="date" class="form-control" name="end_date" required>
+                                    <div class="col-md">
+                                        <div class="form-group">
+                                            <label for="">Sampai Tanggal</label>
+                                            <input type="date" class="form-control" name="end_date" required>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col text-right">
-                                    <button  class="btn btn-primary" type="submit">Filter</button>
+                                <div class="row">
+                                    <div class="col text-right">
+                                        <button  class="btn btn-primary" type="submit">Filter</button>
+                                    </div>
                                 </div>
-                            </div>
                                 
                             </form>
                         </div>
@@ -60,8 +60,11 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Barang</th>
+                                                <th>Nama Peminjam</th>
+                                                <th>Nama Bidang</th>
                                                 <th>Tanggal Keluar</th>
                                                 <th>Jumlah Barang</th>
+                                                <th>Jenis Barang</th>
                                                 <th>Created At</th>
                                             </tr>
                                         </thead>
@@ -69,11 +72,15 @@
                                             <?php
                                                 $no = 1;
                                                 foreach ($laporan as $db) {
+                                                   
                                                     echo '<tr>
                                                             <td>'.$no++.'</td>
                                                             <td>'.$db->nama_barang.'</td>     
+                                                            <td>'.$db->nama_peminjam.'</td>     
+                                                            <td>'.$db->nama_bidang.'</td>     
                                                             <td>'.$db->tanggal_keluar.'</td>    
                                                             <td>'.$db->jumlah_barang.'</td>   
+                                                            <td>'.$db->jenis_barang.'</td>   
                                                             <td>'.date('d-m-Y H:i:s', strtotime($db->created_at)).'</td>
                                                         </tr>';    
                                                 }

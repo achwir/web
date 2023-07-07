@@ -32,9 +32,11 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Barang</th>
-                                                <th>Tanggal Peminjaman</th>
-                                                <th>Tanggal Pengembalian</th>
+                                                <th>Nama Peminjam</th>
+                                                <th>Bidang</th>
+                                                <th>Tanggal Keluar</th>
                                                 <th>Jumlah Barang</th>
+                                                <th>Jenis Barang</th>
                                                 <th>Created At</th>
                                                 <th>Action</th>
                                             </tr>
@@ -42,31 +44,28 @@
                                         <tbody id="body-barang-keluar">
                                             <?php
                                                 $no = 1;
+
                                                 foreach ($databarangkeluar as $db) {
+                                                   
                                                     echo '<tr>
                                                             <td>'.$no++.'</td>
                                                             <td>'.$db->nama_barang.'</td>     
-                                                            <td>'.$db->tanggal_peminjaman.'</td>    
-                                                            <td>'.$db->tanggal_pengembalian.'</td>    
-                                                            <td>'.$db->jumlah_barang.'</td>   
+                                                            <td>'.$db->nama_peminjam.'</td>     
+                                                            <td>'.$db->nama_bidang.'</td>    
+                                                            <td>'.$db->tanggal_keluar.'</td>    
+                                                            <td>'.$db->jumlah_barang.'</td> 
+                                                            <td>'.$db->jenis_barang.'</td>     
                                                             <td>'.date('d-m-Y', strtotime($db->created_at)).'</td>
                                                             <td>
                                                                 <button class="btn btn-warning btn-sm btn-update" 
                                                                 data-id="'.$db->id.'"
                                                                 data-id_barang="'.$db->id_barang.'"
+                                                                data-id_bidang="'.$db->id_bidang.'"
                                                                 data-nama="'.$db->nama_barang.'"
-                                                                data-peminjaman="'.$db->tanggal_peminjaman.'"
-                                                                data-pengembalian="'.$db->tanggal_pengembalian.'"
+                                                                data-peminjam="'.$db->nama_peminjam.'"
                                                                 data-jumlah="'.$db->jumlah_barang.'"
                                                                 ><i class="fas fa-edit"></i></button>
-                                                                <button class="btn btn-success btn-sm btn-update" 
-                                                                data-id="'.$db->id.'"
-                                                                data-id_barang="'.$db->id_barang.'"
-                                                                data-nama="'.$db->nama_barang.'"
-                                                                data-peminjaman="'.$db->tanggal_peminjaman.'"
-                                                                data-pengembalian="'.$db->tanggal_pengembalian.'"
-                                                                data-jumlah="'.$db->jumlah_barang.'"
-                                                                ><i class="fas fa-edit"></i></button>
+                                                                
                                                                 <a class="btn btn-danger btn-sm" href="'.base_url('barang-keluar/delete/'.$db->id).'"><i class="fas fa-trash"></i></a>
                                                             </td>
                                                         </tr>';    
@@ -83,7 +82,7 @@
             </div>
             <div id="modal-tambah" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title" id="myModalLabel">Tambah Data Barang</h4>
@@ -106,15 +105,27 @@
 
                                 <div class="form-group">
                                     <label for="">Barcode</label>
-                                    <input type="text" id="hasilscan" class="form-control" name="kode_barang" readonly>
+                                    <input type="text" id="hasilscan" class="form-control" name="kode_barang" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Tanggal Peminjaman</label>
-                                    <input type="date" class="form-control" name="tanggal_peminjaman" required>
+                                    <label for="">Nama Peminjam</label>
+                                    <input type="text" class="form-control" name="nama_peminjam" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Tanggal Pengembalian</label>
-                                    <input type="date" class="form-control" name="tanggal_pengembalian" required>
+                                    <label for="">Bidang</label>
+                                    <select class="form-control mr-sm-2 select2" id="inlineFormCustomSelect" name="id_bidang" required>
+                                    <?php
+                                    $var = $this->db->get('bidang')->result();
+
+                                    foreach ($var as $v){
+                                    echo '<option value="'.$v->id.'">'.$v->nama_bidang.'</option>';
+                                    }
+                                    ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tanggal Keluar</label>
+                                    <input type="date" class="form-control" name="tanggal_keluar" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Jumlah Barang</label>
@@ -132,7 +143,7 @@
 
             <div id="modal-update" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title" id="myModalLabel">Update Data Barang Keluar</h4>
@@ -150,12 +161,24 @@
                                     <input type="text" class="form-control" name="nama_barang_update" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Tanggal Peminjaman</label>
-                                    <input type="date" class="form-control" name="tanggal_peminjaman_update" required>
+                                    <label for="">Nama Peminjam</label>
+                                    <input type="text" class="form-control" name="nama_peminjam_update" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Tanggal Pengembalian</label>
-                                    <input type="date" class="form-control" name="tanggal_pengembalian_update" required>
+                                    <label for="">Bidang</label>
+                                    <select class="form-control mr-sm-2 select2" id="inlineFormCustomSelect" name="id_bidang_update" required>
+                                    <?php
+                                    $var = $this->db->get('bidang')->result();
+
+                                    foreach ($var as $v){
+                                    echo '<option value="'.$v->id.'">'.$v->nama_bidang.'</option>';
+                                    }
+                                    ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tanggal Keluar</label>
+                                    <input type="date" class="form-control" name="tanggal_keluar_update" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Jumlah Barang</label>
@@ -166,6 +189,51 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary" form="form-update">Save</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+
+            <div id="modal-validation" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Validasi Pengembalian Barang</h4>
+                            <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="<?= base_url('barang-keluar/validation') ?>" method="POST" id="form-validation">
+                                <input type="hidden" name="id_update">
+                                <input type="hidden" name="id_barang">
+                                <input type="hidden" name="jumlah_sebelum">
+
+                                <div class="form-group">
+                                    <label for="">Nama Barang</label>
+                                    <input type="text" class="form-control" name="nama_barang_update" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Nama Peminjam</label>
+                                    <input type="text" class="form-control" name="nama_peminjam_update" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tanggal Peminjaman</label>
+                                    <input type="date" class="form-control" name="tanggal_peminjaman_update" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tanggal Pengembalian</label>
+                                    <input type="date" class="form-control" name="tanggal_pengembalian_update" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Jumlah Barang</label>
+                                    <input type="number" class="form-control" name="jumlah_barang_update" readonly>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" form="form-validation">Validation</button>
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->

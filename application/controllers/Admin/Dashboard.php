@@ -8,7 +8,10 @@ class Dashboard extends MY_Controller {
         $this->load->model('DataBarangModel');
 		$this->load->model('DataBarangMasukModel');
 		$this->load->model('DataBarangKeluarModel');
+		$this->load->model('DataAssetModel');
+		$this->load->model('DataSupplierModel');
 		$this->load->model('DataUserModel');
+		$this->load->model('DataBidangModel');
 		$this->load->model('LogModel');
     }
 
@@ -20,8 +23,13 @@ class Dashboard extends MY_Controller {
 		$data['total_databarang'] = $this->DataBarangModel->hitung_total();
 		$data['total_databarangmasuk'] = $this->DataBarangMasukModel->hitung_total();
 		$data['total_databarangkeluar'] = $this->DataBarangKeluarModel->hitung_total();
+		$data['total_dataasset'] = $this->DataAssetModel->hitung_total();
+		$data['total_datauser'] = $this->DataUserModel->hitung_total();
+		$data['total_datasupplier'] = $this->DataSupplierModel->hitung_total();
+		$data['total_databidang'] = $this->DataBidangModel->hitung_total();
 		$data['log_activity'] = $this->LogModel->getdata();
         $data['datauser'] = $this->DataUserModel->all()->result();
+        $data['datasupplier'] = $this->DataSupplierModel->all()->result();
 
 		// echo '<pre>'.print_r($data['datauser'], 1).'<pre>';
 		// die;

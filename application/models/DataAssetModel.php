@@ -28,6 +28,11 @@ class DataAssetModel extends CI_Model {
     {
         return $this->db->update('data_asset', $data, ['id' => $id]);
     }
+
+    function hitung_total()
+    {
+        return $this->db->get('data_asset')->num_rows();
+    }
     
 }
 ?>

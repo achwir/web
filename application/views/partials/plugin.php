@@ -22,12 +22,18 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.11.4/b-2.2.2/b-html5-2.2.2/b-print-2.2.2/datatables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script>
         $('#zero_config').DataTable();
         $(".preloader ").fadeOut();
         $(".mt-alerts").fadeTo(2000, 500).slideUp(500, function(){
             $(".mt-alerts").slideUp(500);
+        });
+
+        $('.select2').select2({
+            theme: "bootstrap",
+            width: '100%' // need to override the changed default
         });
     </script>
     <?php

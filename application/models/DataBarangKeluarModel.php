@@ -6,9 +6,10 @@ class DataBarangKeluarModel extends CI_Model {
 
     function all()
     {
-        $this->db->select('db.nama_barang, bk.*');
+        $this->db->select('db.nama_barang, db.jenis_barang, bk.*, b.nama_bidang');
         $this->db->from('barang_keluar as bk');
         $this->db->join('data_barang as db', 'db.id = bk.id_barang');
+        $this->db->join('bidang as b', 'b.id = bk.id_bidang');
         return $this->db->get();
     }
 
